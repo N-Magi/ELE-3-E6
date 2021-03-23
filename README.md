@@ -30,16 +30,16 @@
 - 1 * 信号入力 : BNC/バナナ コンパチ
 - 1 * 信号出力 : BNC/バナナ コンパチ
 - 電圧入力
-- - VCC : バナナ
-- - Vin : バナナ
-- - GND : バナナ
+  - VCC : バナナ
+  - Vin : バナナ
+  - GND : バナナ
 - 測定
-- - VCC : ばなな
-- - Vin : バナナ
-- - GND : バナナ
-- - V<sub>A</sub> : バナナ
-- - V<sub>A'</sub> : バナナ
-- - V<sub>C</sub> : バナナ
+  - VCC : ばなな
+  - Vin : バナナ
+  - GND : バナナ
+  - V<sub>A</sub> : バナナ
+  - V<sub>A'</sub> : バナナ
+  - V<sub>C</sub> : バナナ
 
 #### UI
 
