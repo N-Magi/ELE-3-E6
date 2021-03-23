@@ -7,8 +7,8 @@
 |項目|値|
 |:---:|:---:|
 |VCC|5V + 7V|
-|電源電圧過電圧保護(シャットダウン)|12V~|
-|信号入力過電圧保護(クランプ)|3.6V~| 
+|電源電圧過電圧保護(シャットダウン)|[12V~](https://akizukidenshi.com/catalog/g/gI-07497/)|
+|信号入力過電圧保護(クランプ)|[3.6V~](https://akizukidenshi.com/catalog/g/gI-08709/)| 
 |電源入力端子|バナナ|
 
 #### トランジスタ
@@ -18,17 +18,21 @@
 #### 抵抗
 
 - 1W 金皮
-- R<sub>L</sub> : きまってない
+- R<sub>L</sub> : <span style="color: red; ">きまってない</span>
 
 #### ケース
 
-- 金属、アクリル削り出し
+- <span style="color: red; ">きまってない</span> (アクリルって透明だしキレイですよね)
+
+####  UI
+
+- 過電圧表示(LED)
 
 ### No.1 Trスイッチング基礎特性
 
 #### C<sub>s</sub>コンデンサ
 
-- 決まってない
+- <span style="color: red; ">きまってない</span> 
 
 #### 測定端子
 ※BNCのみ基板備え付け
@@ -70,6 +74,7 @@
   - Vin : バナナ
   - GND : バナナ
   - V<sub>Z</sub> : バナナ
+  - - V<sub>C</sub> : バナナ
 
 #### UI
 
