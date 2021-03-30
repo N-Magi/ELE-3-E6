@@ -1,8 +1,6 @@
 import pyvisa
 import time
 # FOR KEITHLEY 2000
-
-
 class Keithley2000:
 
     _timeout: float = 3
@@ -21,23 +19,23 @@ class Keithley2000:
             bool: Success or Failed
         """
         command = ":SENS:FUNC '" + mode + "'"
-        _reswrite(command)
+        _res.write(command)
 
         c = time.time()
-        while mode != _resquery(":SENS:FUNC?"):
+        while mode != _res.query(":SENS:FUNC?"):
             if (c + _timeout) <= time.time():
                 return False
         return True
 
         command = ":INIT:CONT" + str(int(continus))
-        _reswrite(command)
+        _res.write(command)
 
         c = time.time()
-        while int(continus) != int(_resquery(":INIT:CONT?")):
+        while int(continus) != int(_res.query(":INIT:CONT?")):
             if (c + _timeout) <= time.time():
                 return False
         return True
 
     def GetValue(self):
-        value = _resquery(":FETC?")
+        value = _res.query(":FETC?")
         return float(value)
