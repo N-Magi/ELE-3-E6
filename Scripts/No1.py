@@ -33,9 +33,13 @@ import csv
 count = 51
 step = 0.1
 
-vc = Keithley2000(vc)
+vca = Keithley2000(vc)
 vin = Keithley2000(vin)
 va = Keithley2000(va)
+
+
+
+va.Set
 
 o_vin = PSS3203(o_vin)
 
