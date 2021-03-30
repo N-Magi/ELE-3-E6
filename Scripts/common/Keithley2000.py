@@ -1,35 +1,43 @@
 import pyvisa
-### FOR KEITHLEY 2000
+import time
+# FOR KEITHLEY 2000
 
-timeout:float = 3;
 
-def SetMode(mode:str, continus: bool , res:pyvisa.resources.Resource):
-    """[summary]
+class Keithley2000:
 
-    Args:
-        mode (str): VOLT:DC or VOLT:AC CURR:DC FREQ
-        continus (bool): ture on Enable
-        res (pyvisa.resources.Resource): Resrouce instance
+    _timeout: float = 3
+    _res:pyvisa.resources.Resource = []
 
-    Returns:
-        bool: Success or Failed
-    """
-    command = ":SENS:FUNC '" + mode + "'"
-    res.write(command)
+    def __init__(self, resource: pyvisa.resources.Resource, timeout: int):
+        _res = resource
+        _timeout = timeout
 
-    c = time.time()
-    while mode != res.query(":SENS:FUNC?"):
-        if (c + timeout) <= time.time(): return False
-    return True
+    def SetMode(self, mode: str, continus: bool):
+        """[summary]
+        Args:
+            mode (str): VOLT:DC or VOLT:AC CURR:DC FREQ
+            continus (bool): ture on Enable
+        Returns:
+            bool: Success or Failed
+        """
+        command = ":SENS:FUNC '" + mode + "'"
+        _reswrite(command)
 
-    command = ":INIT:CONT" + str(int(continus))
-    res.write(command)
+        c = time.time()
+        while mode != _resquery(":SENS:FUNC?"):
+            if (c + _timeout) <= time.time():
+                return False
+        return True
 
-    c = time.time()
-    while int(continus) != int(res.query(":INIT:CONT?")):
-        if (c + timeout) <= time.time(): return False
-    return True
+        command = ":INIT:CONT" + str(int(continus))
+        _reswrite(command)
 
-def GetValue(res:pyvisa.resources.Resource):
-    value = res.query(":FETC?")
-    return float(value)
+        c = time.time()
+        while int(continus) != int(_resquery(":INIT:CONT?")):
+            if (c + _timeout) <= time.time():
+                return False
+        return True
+
+    def GetValue(self):
+        value = _resquery(":FETC?")
+        return float(value)
